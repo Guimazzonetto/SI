@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+float calc_IMC (){
+
+    float massa, altura, _IMC;
+
+    printf("\n\n\n #####     CALCULO DO IMC     ##### \n\n");
+
+    printf("Digite sua Massa (Kg): ");
+    scanf("%f",&massa);
+    printf("Digite sua Altura (Metros): ");
+    scanf("%f",&altura);
+
+    _IMC = massa/(pow(altura,2));
+
+    printf("-----------------------------------\n");
+    printf("Seu IMC e: %0.2f\n",_IMC);
+
+    if(_IMC<17)
+    {
+        printf("Muito abaixo do peso.\n");
+    }
+    else
+    {
+        if(_IMC>17 && _IMC<18.49)
+        {
+            printf("Abaixo do peso.\n");
+        }
+        else
+        {
+            if(_IMC>18.5 && _IMC<24.99)
+            {
+                printf("Peso normal.\n");
+            }
+            else
+            {
+                if(_IMC>25 && _IMC<29.99)
+                {
+                    printf("Acima do peso.\n");
+                }
+                else
+                {
+                    if(_IMC>30 && _IMC<34.99)
+                    {
+                        printf("Voce esta Obeso.\n");
+                    }
+                    else
+                    {
+                        if(_IMC>35 && _IMC<39.99)
+                        {
+                            printf("Obesidade Severa.\n");
+                        }
+                        else
+                        {
+                            if(_IMC>40)
+                            {
+                                printf("Voce esta em Obesidade MORBIDA.\n");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+float calc_bhaskara(){
+
+  float a,b,c,x1,x2,d;
+
+  printf("\n\n\n #####     CALCULO DE BHASKARA     ##### \n\n");
+  
+  printf("Digite o valor de a:\n");
+  scanf("%f", &a);
+  
+  printf("Digite o valor de b:\n");
+  scanf("%f", &b);
+  
+  printf("Digite o valor de c:\n");
+  scanf("%f", &c);
+
+  if (a == 0) {
+    if (b != 0) {  
+      x1 = -c/b;
+      printf("A equacao e de primeiro grau e a raiz e: %f\n", x1);
+    }
+    else {
+      if (c == 0) {
+	printf("Parabens! 0 = 0!\n");
+      }
+      else {
+	printf("Voce cometeu uma contradicao\n");
+      }
+    }
+  }
+  else {
+    
+    d = b*b - 4*a*c;
+
+    if (d < 0) {
+      printf("Nao existe solucao real :(\n");
+    }
+    else {
+      x1 = (-b + sqrt(d))/(2*a);
+      x2 = (-b - sqrt(d))/(2*a);
+
+      if (fabs(d) < 1.0e-10) {
+	printf("Existe uma raiz %f de multiplicidade 2\n", x1);
+      }
+      else {
+	printf("As raizes sao %f e %f\n", x1, x2);
+      }
+    }
+  }
+  
+  return(0);
+}
+
+
+int main()
+{
+    int i, num, j;
+    printf ("Enter the number: ");
+    scanf ("%d", &num );
+
+
+	j = 1;
+	for (i = 1; i<=num; i++) {
+        j=j*i;
+	}
+
+    printf("The factorial of %d is %d\n",num,j);
+
+    calc_IMC();
+    calc_bhaskara();
+
+}
+
